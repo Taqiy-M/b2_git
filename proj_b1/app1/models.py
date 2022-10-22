@@ -94,7 +94,7 @@ class Hello_World(models.Model):
         return self.student.ism
 
 
-class Hello_ZED(models.Model):
+class Hello(models.Model):
     berilgan_sana = models.DateTimeField(auto_created=True)
     qaytardi = models.CharField(max_length=10, choices=HAYOQ)
     qaytarilgan_sana = models.DateTimeField(null=True, blank=True, default=None)
@@ -104,7 +104,14 @@ class Hello_ZED(models.Model):
         return self.student.ism
 
 
+class Hello_zed(models.Model):
+    berilgan_sana = models.DateTimeField(auto_created=True)
+    qaytardi = models.CharField(max_length=10, choices=HAYOQ)
+    qaytarilgan_sana = models.DateTimeField(null=True, blank=True, default=None)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.student.ism
 
 # class User:
 #     username
