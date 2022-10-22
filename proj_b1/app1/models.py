@@ -79,7 +79,9 @@ class Record(models.Model):
     def __str__(self):
         return self.student.ism
 
-
+class Tadbirkor(models.Model):
+    name = models.CharField(max_length=40)
+    surname = models.CharField(max_length=40)
 
 
 

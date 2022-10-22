@@ -13,6 +13,7 @@ class StudentAdmin(ModelAdmin):
 
 admin.site.register(Author)
 admin.site.register(Book)
+admin.site.register(Record)
 
 
 @admin.register(Record)
