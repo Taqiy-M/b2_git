@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar</title>
+</head>
+<body>
+
+{% for i in kitoblar %}
+<h3>{{i.nom}}</h3>
+<a><button>Delete</button></a>
+<a href="/edit-book/{{i.id}}/"><button>Edit</button></a>
+<hr>
+{% endfor %}
+
+
+<form action="/add-book/" method="post"> {% csrf_token %}
+    <input type="text" placeholder="Nom" name="name"><br>
+    <input type="number" placeholder="Yil" name="year"><br>
+    <select name="genre">
+        <option>Fantastik</option>
+        <option>Komediya</option>
+        <option>Drama</option>
+        <option>Tarixiy</option>
+        <option>Ilmiy</option>
+        <option>Detektiv</option>
+    </select><br>
+    <input type="number" placeholder="Sahifa" name="page"><br>
+    <select name="author">
+        {% for i in mualliflar %}
+        <option value="{{i.id}}">{{i.ism}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <button style="background-color:red; color:white;" type="submit">Qo'shish</button>
+</form>
+
+
+</body>
+</html>

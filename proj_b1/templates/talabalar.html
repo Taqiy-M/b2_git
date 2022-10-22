@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talabalar Ro'yxati</title>
+</head>
+<body>
+
+<h2>Hamma talabalar ro'yxati</h2>
+
+{% for i in students %}
+<h3><a href="/student/{{i.id}}/">{{i.ism}}</a></h3>ffffffffffff
+<a href="/delete-student/{{i.id}}/"><button>Delete</button></a>
+<a href="/edit-student/{{i.id}}/"><button>Tahrirlash</button></a>
+<hr>
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar</title>
+</head>
+<body>
+
+{% for muallif in mualliflar %}
+<h1><a href="/muallif/{{muallif.id}}/">{{muallif.ism}}</a></h1>
+{% endfor %}
+
+<form action="/add-author/" method="post"> {% csrf_token %}
+    <input type="text" placeholder="Ism" name="name">
+    <input type="number" placeholder="Yosh" name="age">
+    <select name="nation">
+        <option>O'zbek</option>
+        <option>Ingliz</option>
+        <option>Turk</option>
+        <option>Arab</option>
+        <option>Rus</option>
+    </select>
+    <button type="submit">Qo'shish</button>
+</form>
+
+</body>
+</html>

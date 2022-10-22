@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+</head>
+<body>
+
+<form method="post" action="/edit-book/{{book.id}}/"> {% csrf_token %}
+    <input type="text" name="nom" placeholder="Kitob Nomi" value="{{book.nom}}"><br>
+    <input type="number" name="yil" placeholder="Yozilgan yil" value="{{book.yil}}"><br>
+    <select name="janr">
+        <option>Detektiv</option>
+        <option>Fantastik</option>
+        <option>Ilmiy</option>
+        <option>Badiiy</option>
+        <option>Psixologik</option>
+    </select><br>
+    <input type="number" name="sahifa" value="{{book.sahifa}}" placeholder="Sahifa Soni"><br>
+    <select name="muallif">
+        {% for i in authors %}
+        <option value="{{i.id}}">{{i.ism}}</option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Update</button>
+</form>
+
+
+</body>
+</html>
